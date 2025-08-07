@@ -1,0 +1,176 @@
+/* Reset default padding and margin */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling with background image */
+body {
+    background: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Main container for the game */
+.container {
+    text-align: center;
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Play area styling */
+#playArea {
+    background-image: url('i6.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+    width: 90vmin;
+    height: 92vmin;
+    max-width: 98vw;
+    max-height: 70vw;
+    border: 4px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-rows: repeat(18, 1fr);
+    grid-template-columns: repeat(18, 1fr);
+    margin: 0 auto;
+    touch-action: none;
+}
+
+/* Snake body segment styling */
+.snake {
+    background-color: red;
+    border: 1px solid #fff;
+    border-radius: 50%;
+}
+
+/* Snake head styling */
+.head {
+    background-color: red;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    position: relative; /* Required for positioning the eyes */
+}
+
+/* Snake eyes styling */
+.head::before,
+.head::after {
+    content: '';
+    position: absolute;
+    width: 20%; /* Size of the eyes relative to the head */
+    height: 20%;
+    background-color: white;
+    border-radius: 50%;
+    top: 20%; /* Position the eyes vertically */
+}
+
+.head::before {
+    left: 20%; /* Position the left eye */
+}
+
+.head::after {
+    right: 20%; /* Position the right eye */
+}
+
+/* Food styling */
+.food {
+    background-color: aqua;
+    border: 2px solid #333;
+    border-radius: 50%;
+}
+
+/* Score and high score container */
+.score-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    margin-bottom: 2vw;
+}
+
+#scorebox, #hiscorebox {
+    position: static;
+    font-size: 2.2vw;
+    font-weight: bold;
+    color: chartreuse;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    background: rgba(0,0,0,0.1);
+    padding: 0.5vw 2vw;
+    border-radius: 1vw;
+}
+
+/* Touch controls styling */
+#touchControls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2vw;
+    gap: 1vw;
+    z-index: 10;
+}
+#touchControls button {
+    width: 18vw;
+    height: 18vw;
+    max-width: 80px;
+    max-height: 80px;
+    font-size: 8vw;
+    border-radius: 50%;
+    border: 2px solid #333;
+    background: #eee;
+    margin: 0.5vw;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    touch-action: manipulation;
+}
+#touchControls button:active {
+    background: #ccc;
+}
+@media (min-width: 601px) {
+    #touchControls {
+        display: none !important;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    #playArea {
+        width: 98vw;
+        height: 98vw;
+        max-height: 98vw;
+        max-width: 98vw;
+    }
+    .score-container {
+        gap: 4vw;
+        margin-bottom: 3vw;
+    }
+    #scorebox, #hiscorebox {
+        font-size: 5vw;
+        padding: 1vw 4vw;
+        border-radius: 2vw;
+    }
+    #hiscorebox {
+        top: 10vw;
+    }
+}
+
+@media (max-height: 600px) {
+    #playArea {
+        height: 70vw;
+        max-height: 70vw;
+    }
+}
