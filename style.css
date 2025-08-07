@@ -124,6 +124,14 @@ body {
     gap: 1vw;
     z-index: 10;
 }
+
+.control-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+}
+
 #touchControls button {
     width: 18vw;
     height: 18vw;
@@ -137,6 +145,7 @@ body {
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     touch-action: manipulation;
 }
+
 #touchControls button:active {
     background: #ccc;
 }
